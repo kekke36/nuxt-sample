@@ -1,6 +1,6 @@
 import { http, HttpResponse } from "msw";
 
-export const handlers = [
+export const books = [
   http.get("http://localhost:3000/api/books", () => {
     return HttpResponse.json({
       books: [
