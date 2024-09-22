@@ -30,10 +30,23 @@ if (result.success) {
   console.log(result.data);
   console.log(result.error.message);
 }
+
+const { isLoading } = useLoadingIndicator();
 </script>
 
 <template>
-  index
-  <p>{{ res }}</p>
-  <p v-if="result.error">{{ result.error.errors[0].message }}</p>
+  <div>
+    <p>index</p>
+    <p>{{ res }}</p>
+    <p v-if="result.error">{{ result.error.errors[0].message }}</p>
+
+    <p>isLoading {{ isLoading }}</p>
+
+    <div>
+      <p>Link</p>
+      <p>
+        <NuxtLink to="/api-test">api-test</NuxtLink>
+      </p>
+    </div>
+  </div>
 </template>
