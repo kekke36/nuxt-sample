@@ -1,8 +1,8 @@
 import type { UseFetchOptions } from "nuxt/app";
 
-export const useApiFetch = <T>(
+export const useCustomFetch = <T>(
   url: string,
   options: UseFetchOptions<T> = {}
 ) => {
-  return useFetch(url, { ...options, baseURL: "http://localhost:3000" });
+  return useFetch(url, { ...options, $fetch: customFetch });
 };
