@@ -2,5 +2,6 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
-  ssr: false, // 初期表示時にmswのモックAPIを呼ぶためにssr: falseが必要
+  ssr: false, // NOTE: SSRだと初期表示時にMSWのモックAPIが呼べない
+  modules: ["@nuxt/eslint"],
 });
