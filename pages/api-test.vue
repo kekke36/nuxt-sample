@@ -1,39 +1,41 @@
 <script setup lang="ts">
-import type { Todos } from "~/mocks/handlers/todos";
+import { useFetchBooks } from "~/composables/books/useFetchBooks";
+import { usePostTodo } from "~/composables/todos/usePostTodo";
 
-const { data: books } = await useBooks();
+const { data: books } = await useFetchBooks();
+const { data: todos, mutate } = usePostTodo();
 
-const {
-  data: todos,
-  status,
-  execute,
-} = useCustomFetch<Todos>("/todos", {
-  method: "POST",
-  immediate: false,
-  body: {
-    id: 1324,
-    title: "asdf",
-  },
-});
+// const {
+//   data: todos,
+//   status,
+//   execute,
+// } = useCustomFetch<Todos>("/todos", {
+//   method: "POST",
+//   immediate: false,
+//   body: {
+//     id: 1324,
+//     title: "asdf",
+//   },
+// });
 
 // const todos = ref();
 console.log(constants.test.ASADF);
 
-const postApi = async () => {
+function postApi() {
   // const { data: res } = await apiClient.post("http://localhost:3000/todos");
-
   // const { $customFetch } = useNuxtApp();
-
   // const res = await customFetch<Todos>("/todos", {
   //   method: "POST",
+  //   onResponse: () => console.log("success"),
   // });
-
-  execute();
-
+  // execute();
   // todos.value = res.value;
-};
 
-const { isLoading, progress } = useLoadingIndicator();
+  mutate();
+}
+
+const isFetching = useIsFetching();
+const isMutating = useIsMutating();
 </script>
 
 <template>
@@ -56,8 +58,7 @@ const { isLoading, progress } = useLoadingIndicator();
       <p>{{ todos?.title }}</p>
     </div>
 
-    <p>isLoading{{ isLoading }}</p>
-    <p>progress{{ progress }}</p>
-    <p>status{{ status }}</p>
+    <p>isFetching{{ isFetching }}</p>
+    <p>isMutating{{ isMutating }}</p>
   </main>
 </template>

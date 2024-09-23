@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const { data: books } = await useBooks();
+import { useFetchBooks } from "~/composables/books/useFetchBooks";
+
+const { data: books } = await useFetchBooks();
 </script>
 
 <template>

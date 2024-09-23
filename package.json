@@ -13,10 +13,11 @@
     "format": "prettier"
   },
   "dependencies": {
-    "axios": "^1.7.7",
+    "@hebilicious/vue-query-nuxt": "^0.3.0",
+    "@tanstack/vue-query": "^5.56.2",
     "nuxt": "^3.13.0",
-    "vue": "latest",
-    "vue-router": "latest",
+    "vue": "^3.5.8",
+    "vue-router": "^4.4.5",
     "zod": "^3.23.8"
   },
   "devDependencies": {
