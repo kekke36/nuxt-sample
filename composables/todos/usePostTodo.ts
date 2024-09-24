@@ -1,4 +1,4 @@
-import type { Todos } from "~/mocks/handlers/todos";
+import type { Todos } from "~/types/api/todos";
 
 export function usePostTodo() {
   return useMutation<Todos>({
