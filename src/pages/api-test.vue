@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useFetchBooks } from "~/composables/books/useFetchBooks";
-import { usePostTodo } from "~/composables/todos/usePostTodo";
+import { useFetchBooks } from "../composables/books/useFetchBooks";
+import { usePostTodo } from "../composables/todos/usePostTodo";
 
 const { data: books } = await useFetchBooks();
 const { data: todos, mutate } = usePostTodo();

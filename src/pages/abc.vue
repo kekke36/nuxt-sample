@@ -1,4 +1,4 @@
 <template>
   <p>abc</p>
-  <NuxtPage></NuxtPage>
+  <NuxtPage />
 </template>
