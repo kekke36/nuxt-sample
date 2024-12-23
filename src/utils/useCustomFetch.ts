@@ -1,8 +1,12 @@
-import { useQuery } from "@tanstack/vue-query";
+import type { UseFetchOptions } from "nuxt/app";
 
-export const useCustomFetch = <T>(url: string) => {
-  return useQuery<T>({
-    queryKey: [url],
-    queryFn: () => customFetch(url),
+export function useCustomFetch<T>(
+  url: string | (() => string),
+  options: UseFetchOptions<T> = {}
+) {
+  return useFetch(url, {
+    ...options,
+    $fetch: customFetch,
+    dedupe: "defer",
   });
-};
+}
